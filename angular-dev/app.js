@@ -6,6 +6,10 @@ angular.module('personalApp').config(function($stateProvider, $urlRouterProvider
         url: '/add-bill',
         templateUrl: 'partial/add-bill/add-bill.html'
     });
+    $stateProvider.state('bills', {
+        url: '/bills',
+        templateUrl: 'partial/bills/bills.html'
+    });
     /* Add New States Above */
     $urlRouterProvider.otherwise('/home');
 

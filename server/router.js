@@ -24,8 +24,37 @@ module.exports = function(server){
         });
 
     });
+    server.get('/api/bill', function(req, res){
+        console.log('Server just recieved a GET request!!');
+
+        var Bill = mongoose.model('Bill');
+
+        Bill.find(function (err, docs) {
+
+            if (!err) {
+                res.send(docs);
+            } else {
+                console.log(err);
+            }
+
+        });
+
+    });
     server.delete('/api/bill/:id', function(req, res){
         console.log('Server just recieved a DELETE request!!');
+
+        var id = req.params.id;
+        var Bill = mongoose.model('Bill');
+
+        Bill.findByIdAndRemove(id, function (err, doc) {
+
+            if (!err) {
+                res.sendStatus(200);
+            } else {
+                res.sendStatus(400);
+            }
+
+        });
 
     });
 

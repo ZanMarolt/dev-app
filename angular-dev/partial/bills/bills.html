@@ -1,0 +1,22 @@
+<div class="col-md-12" ng-controller="BillsCtrl">
+    <h1>Bills</h1><div class="btn btn-success" ng-click="createBill()">+ Add New</div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="Bill in list">
+            <td>{{Bill.description}}</td>
+            <td>{{Bill.price}}€</td>
+            <td>{{Bill.billDate| date:'dd/MM/yy'}}</td>
+            <td><div class="btn btn-xs btn-danger" ng-click="deleteBill(Bill._id)">Delete</div></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
