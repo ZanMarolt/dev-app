@@ -34,11 +34,18 @@
   <script src="app.js"></script>
   <script src="partial/add-bill/add-bill.js"></script>
   <script src="partial/bills/bills.js"></script>
+  <script src="partial/income/income.js"></script>
+  <script src="partial/add-income/add-income.js"></script>
+  <script src="partial/tracker/tracker.js"></script>
   <!-- Add New Component JS Above -->
 
   <div>
+      <div class="btn btn-success" ui-sref="bills">Bills</div>
+      <div class="btn btn-success" ui-sref="income">Income</div>
+      <div class="btn btn-success" ui-sref="tracker">Tracker</div>
     <div id="content" class="container">
       <div class="row">
+
         <div ui-view>
         </div>
       </div>

@@ -1,9 +1,9 @@
-angular.module('personalApp').controller('BillsCtrl',function($scope, $http, $state){
+angular.module('personalApp').controller('IncomeCtrl',function($scope, $http, $state){
 
     $scope.list = [];
 
-    $scope.getBills = function(cb){
-        $http.get('/api/bill')
+    $scope.getIncome = function(cb){
+        $http.get('/api/income')
             .then(function(res){
 
                 var list = res.data;
@@ -17,20 +17,19 @@ angular.module('personalApp').controller('BillsCtrl',function($scope, $http, $st
             });
     };
 
-    $scope.deleteBill = function(id, cb){
+    $scope.deleteIncome = function(id, cb){
 
-        $http.delete('/api/bill/'+id)
+        $http.delete('/api/income/'+id)
             .then(function(res){
 
                 if(cb) {
                     cb(res);
                 }
                 if(res.status === 200){
-                    angular.forEach($scope.list, function(bill, index){
+                    angular.forEach($scope.list, function(income, index){
 
-                        if(bill._id === id){
+                        if(income._id === id){
                             $scope.list.splice(index,1);
-                            console.log($scope.list);
                             $scope.calculateCash();
                         }
 
@@ -41,9 +40,9 @@ angular.module('personalApp').controller('BillsCtrl',function($scope, $http, $st
 
     };
 
-    $scope.createBill = function(){
+    $scope.createIncome = function(){
 
-        $state.go('add-bill');
+        $state.go('add-income');
 
     };
 
@@ -59,10 +58,8 @@ angular.module('personalApp').controller('BillsCtrl',function($scope, $http, $st
 
     };
 
-    $scope.getBills(function(){
+    $scope.getIncome(function(){
         $scope.calculateCash();
     });
-
-
 
 });

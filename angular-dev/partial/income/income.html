@@ -1,0 +1,23 @@
+<div class="col-md-12" ng-controller="IncomeCtrl">
+    <h1>Income</h1><div class="btn btn-success" ng-click="createIncome()">+ Add New</div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="Income in list">
+            <td>{{Income.description}}</td>
+            <td>{{Income.price}}€</td>
+            <td>{{Income.billDate| date:'dd/MM/yy'}}</td>
+            <td><div class="btn btn-xs btn-danger" ng-click="deleteIncome(Income._id)">Delete</div></td>
+        </tr>
+        </tbody>
+    </table>
+    <h1>Combined: {{combinedCash}}€</h1>
+
+</div>

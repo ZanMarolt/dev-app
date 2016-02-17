@@ -1,15 +1,12 @@
-angular.module('personalApp').controller('AddBillCtrl',function($scope, $stateParams, $http){
-    var id = $stateParams.id;
+angular.module('personalApp').controller('AddIncomeCtrl',function($scope, $http){
 
-    console.log(id);
-
-    $scope.postBill = function(){
-        var data = $scope.bill;
-        $http.post("/api/bill", data)
+    $scope.postIncome = function(){
+        var data = $scope.income;
+        $http.post("/api/income", data)
             .then(function(res){
                 console.log(res);
                 if(res.status === 200){
-                    $scope.bill = {};
+                    $scope.income = {};
                     console.log('OK!');
                 }
             });
